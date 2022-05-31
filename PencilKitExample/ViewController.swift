@@ -39,13 +39,15 @@ class ViewController: UIViewController, PKCanvasViewDelegate, PKToolPickerObserv
         
         let toolPicker = PKToolPicker()
         toolPicker.setVisible(true, forFirstResponder: canvasView)
-        toolPicker.addObserver(canvasView)
+        toolPicker.addObserver(self)
         canvasView.becomeFirstResponder()
     }
 
-    //Canvas Delegates
+    //Canvas View Delegates
     
     func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
+        
+        print("Drawing Did Change")
         
     }
     
@@ -62,7 +64,23 @@ class ViewController: UIViewController, PKCanvasViewDelegate, PKToolPickerObserv
         
     }
     
-
+    //Tool Picker Delegate
+    
+    func toolPickerSelectedToolDidChange(_ toolPicker: PKToolPicker) {
+        print("toolPickerSelectedToolDidChange")
+    }
+    
+    func toolPickerIsRulerActiveDidChange(_ toolPicker: PKToolPicker) {
+        print("toolPickerIsRulerActiveDidChange")
+    }
+    
+    func toolPickerVisibilityDidChange(_ toolPicker: PKToolPicker) {
+        print("toolPickerVisibilityDidChange")
+    }
+    
+    func toolPickerFramesObscuredDidChange(_ toolPicker: PKToolPicker) {
+        print("toolPickerFramesObscuredDidChange")
+    }
     
 }
 
